@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-mist text-ink font-body antialiased;
+  }
+  ::selection {
+    @apply bg-forest-light;
+  }
+  /* キーボードフォーカスの可視性を確保 */
+  :focus-visible {
+    outline: 2px solid theme("colors.forest.DEFAULT");
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* タイムラインの縦点線（登山道の破線をイメージ） */
+.trail-line {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #b7c4ae 0,
+    #b7c4ae 4px,
+    transparent 4px,
+    transparent 10px
+  );
+  width: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #c7d0bd;
+  border-radius: 999px;
+}
